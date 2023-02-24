@@ -1,7 +1,7 @@
 ﻿# taxi-service
 
 My First simple java pet project
-## Involved Technologies:
+## :rocket:	Involved Technologies::rocket:	
 
 #### Java
 #### MySql
@@ -22,6 +22,6 @@ My First simple java pet project
 ### Add driver to car
 ### Logout
 
-## Visualisation:
+## :framed_picture:Visualisation::framed_picture:
 
 <img src="https://i.postimg.cc/WbyB6hgw/Screenshot-3.png" width = "400" >
