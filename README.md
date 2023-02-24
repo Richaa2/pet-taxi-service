@@ -5,6 +5,7 @@ My First simple java pet project
 
 #### Java
 #### MySql
+#### jdbc
 #### Tomcat
 
 ## Features
