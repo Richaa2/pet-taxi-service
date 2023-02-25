@@ -88,19 +88,19 @@ class CarDaoImplTest {
     }
 
     @Test
-    void carDao_CreateManufacturerNull_notOk() {
+    void carDao_Create_ManufacturerNull_notOk() {
         car.setManufacturer(null);
         Assertions.assertThrows(RuntimeException.class, () -> carDao.create(car));
     }
 
     @Test
-    void carDao_CreateModelNull_notOk() {
+    void carDao_Create_ModelNull_notOk() {
         car.setModel(null);
         Assertions.assertThrows(RuntimeException.class, () -> carDao.create(car));
     }
 
     @Test
-    void carDao_CreateDriversNull_notOk() {
+    void carDao_Create_DriversNull_notOk() {
         car.setDrivers(null);
         Assertions.assertThrows(RuntimeException.class, () -> carDao.create(car));
     }
@@ -135,5 +135,15 @@ class CarDaoImplTest {
         Car carTest = carDao.getAll().get(0);
         carTest.setDrivers(null);
         Assertions.assertThrows(RuntimeException.class, () -> carDao.update(carTest));
+    }
+
+    @Test
+    void carDao_deleteNull_notOk() {
+        Assertions.assertThrows(RuntimeException.class, () -> carDao.delete(null));
+    }
+
+    @Test
+    void carDao_deleteWrongId_notOk() {
+        Assertions.assertFalse(carDao.delete(2371837123781237L));
     }
 }
