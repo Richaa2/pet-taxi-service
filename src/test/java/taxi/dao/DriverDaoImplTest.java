@@ -12,10 +12,16 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DriverDaoImplTest {
-    DriverDao driverDao = new DriverDaoImpl();
+    private static DriverDao driverDao;
 
-    Driver driver = new Driver("testName", "443242"
-            , "testLogin", "testPassword");
+    private static Driver driver;
+
+    @BeforeAll
+    static void beforeAll() {
+        driverDao = new DriverDaoImpl();
+        driver = new Driver("testName", "443242"
+                , "testLogin", "testPassword");
+    }
 
     @Test
     void driverDao_create_Ok() {

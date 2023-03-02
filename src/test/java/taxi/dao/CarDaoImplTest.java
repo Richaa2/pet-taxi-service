@@ -2,6 +2,7 @@ package taxi.dao;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import taxi.model.Car;
 import taxi.model.Driver;
@@ -12,45 +13,32 @@ import java.util.List;
 import java.util.Optional;
 
 class CarDaoImplTest {
-    CarDao carDao = new CarDaoImpl();
-    static Manufacturer manufacturer = new Manufacturer("name", "uk");
-    static Driver driver = new Driver("testName", "111111", "testLogin", "testPassword");
+    private static CarDao carDao;
+    private static Manufacturer manufacturer;
+    private static Driver driver;
 
-    Car car = new Car("model", manufacturer);
+    private static ManufacturerDao manufacturerDao;
+    private static DriverDao driverDao;
+    private static Car car;
 
 
     @BeforeAll
     static void beforeAll() {
-        ManufacturerDao manufacturerDao = new ManufacturerDaoImpl();
-        DriverDao driverDao = new DriverDaoImpl();
-        List<Manufacturer> manufacturers = manufacturerDao.getAll();
-        List<Driver> drivers = driverDao.getAll();
-        boolean isExistManufacturers = manufacturers.stream()
-                .anyMatch(x -> x.getName().equals(manufacturer.getName())
-                        && x.getCountry().equals(manufacturer.getCountry()));
-        boolean isExistDrivers = drivers.stream()
-                .anyMatch(x -> x.getName().equals(driver.getName())
-                        && x.getLicenseNumber().equals(driver.getLicenseNumber())
-                        && x.getLogin().equals(driver.getLogin())
-                        && x.getPassword().equals(driver.getPassword()));
-        if (!isExistManufacturers) {
-            manufacturerDao.create(manufacturer);
-        } else {
-            manufacturer.setId(manufacturers.stream().filter(x -> x.getName().equals(manufacturer.getName())
-                    && x.getCountry().equals(manufacturer.getCountry())).findFirst().get().getId());
-        }
-        if (!isExistDrivers) {
-            driverDao.create(driver);
-        } else {
-            driver.setId(drivers.stream().filter(x -> x.getName().equals(driver.getName())
-                    && x.getLicenseNumber().equals(driver.getLicenseNumber())
-                    && x.getLogin().equals(driver.getLogin())
-                    && x.getPassword().equals(driver.getPassword())).findFirst().get().getId());
-        }
+        carDao = new CarDaoImpl();
+        manufacturerDao = new ManufacturerDaoImpl();
+        driverDao = new DriverDaoImpl();
+    }
+
+    @BeforeEach
+    void setUp() {
+        manufacturer = new Manufacturer("name", "uk");
+        driver = new Driver("testName", "111111", "testLogin", "testPassword");
+        car = new Car("model", manufacturer);
     }
 
     @Test
     void carDao_Create_Ok() {
+        manufacturerDao.create(manufacturer);
         Assertions.assertEquals(car, carDao.create(car));
     }
 
@@ -62,6 +50,7 @@ class CarDaoImplTest {
 
     @Test
     void carDao_update_Ok() {
+        driverDao.create(driver);
         Car carTest = carDao.getAll().get(0);
         carTest.setModel("changed");
         List<Driver> drivers = new ArrayList<>();
@@ -77,6 +66,7 @@ class CarDaoImplTest {
 
     @Test
     void carDao_getAllByDrivers_Ok() {
+        driverDao.create(driver);
         carDao.getAllByDriver(driver.getId());
     }
 
