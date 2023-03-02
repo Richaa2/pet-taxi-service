@@ -3,10 +3,11 @@
 My First simple java pet project
 ## :rocket:	Involved Technologies::rocket:	
 
-#### Java
+#### Java 8
 #### MySql
 #### jdbc
 #### Tomcat
+#### JUnit 4
 
 ## Features
 
