@@ -5,15 +5,13 @@ My First simple java pet project
 it simulates a taxi service where we can manage cars, drivers
 
 ## Features
-Authentication by driver
+Authentication by driver | Logout
 
 Display all drivers | Display all cars | Display my cars | Display all manufactures
 
 create new driver | create new Car | create new Manufacturer
 
 Add driver to car
-
-Logout
 
 <img src="https://i.postimg.cc/WbyB6hgw/Screenshot-3.png" width = "400" >
 
