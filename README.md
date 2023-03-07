@@ -2,7 +2,19 @@
 
 My First simple java pet project
 
-it simulates a taxi service where we can manage cars, drivers
+ example of a web application for a taxi service
+ 
+built using Java, jdbc, and MySQL.
+
+The application allows users to register as taxi drivers.
+
+The project follows the MVC architecture pattern,
+
+SOLID principle, and includes various features such as create drivers/car/manufacturer 
+
+and their manage, exception handling.
+
+The code is well-organized, making it easy to understand and modify
 
 ## Features
 Authentication by driver | Logout
