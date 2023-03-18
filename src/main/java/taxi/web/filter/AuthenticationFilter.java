@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private final Set<String> urls = new HashSet<>();
+    private final Set<String> publicUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        urls.add("/login");
-        urls.add("/drivers/add");
+    public void init(FilterConfig filterConfig) {
+        publicUrls.add("/login");
+        publicUrls.add("/drivers/add");
     }
 
     @Override
@@ -30,7 +30,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && urls.contains(req.getServletPath())) {
+        if (driverId == null && publicUrls.contains(req.getServletPath())) {
             filterChain.doFilter(req, resp);
             return;
         }

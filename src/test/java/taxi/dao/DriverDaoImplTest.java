@@ -3,13 +3,10 @@ package taxi.dao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import taxi.dao.impl.DriverDaoImpl;
 import taxi.model.Driver;
 
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DriverDaoImplTest {
     private static DriverDao driverDao;
