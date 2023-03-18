@@ -1,28 +1,93 @@
 ﻿# taxi-service
 
 My First simple java pet project
-## :rocket:	Involved Technologies::rocket:	
 
-#### Java 8
-#### MySql
-#### jdbc
-#### Tomcat
-#### JUnit 4
+ example of a web application for a taxi service
+ 
+built using Java, jdbc, and MySQL.
+
+The application allows users to register as taxi drivers.
+
+The project follows the MVC architecture pattern,
+
+SOLID principle, and includes various features such as create drivers/car/manufacturer 
+
+and their manage, exception handling.
+
+The code is well-organized, making it easy to understand and modify
 
 ## Features
+Authentication by driver | Logout
 
-### Authentication by driver
-### create driver
-### Display all drivers
-### Display all cars
-### Display my cars
-### Display all manufactures
-### create new driver
-### create new Car
-### create new Manufacturer
-### Add driver to car
-### Logout
+Display all drivers | Display all cars | Display my cars | Display all manufactures
 
-## :framed_picture:Visualisation::framed_picture:
+create new driver | create new Car | create new Manufacturer
+
+Add driver to car
 
 <img src="https://i.postimg.cc/WbyB6hgw/Screenshot-3.png" width = "400" >
+
+## :rocket:	Involved Technologies::rocket:	
+
+Java 8
+
+MySql
+
+jdbc
+
+Tomcat
+
+JUnit 4
+
+## :wrench:	 How to setup :wrench:	
+
+### For connection to database
+
+1. create MySql connection in local Desktop <br/><br/>
+
+2. open file with path
+
+ src/main/java/taxi/util/ConnectionUtil.java <br/><br/>
+
+3. change value of private static final String USERNAME = "YOUR_USERNAME";
+
+ where YOUR_USERNAME = username of your connection <br/><br/>
+
+4. change value of  private static final String PASSWORD = "YOUR_PASSWORD";
+
+where YOUR_PASSWORD = password of your connection <br/><br/>
+
+5. change value of variable URL to "jdbc:mysql://YOUR_HOST:YOUR_PORT/taxi?serverTimezone=UTC";
+
+where YOUR_HOST = host of your connection and YOUR:PORT = port of your connection <br/><br/>
+
+6. copy SQL query in file src/main/resources/init_db.sql past and execute in your connection <br/><br/>
+
+### For start project 
+
+0. download Tomcat version 9 and Intelij Idea Ultimate
+
+1. click in IDE to Edit Configuration 
+
+2. click Add New Configuration
+
+3. pick Tomcat Server - Local
+
+4. click Configure 
+
+5. in "Tomcat Home" select our downloaded before tomcat 9 and click Ok
+
+6. step to Deployment menu 
+
+7. click add select taxi-service:war exploaded
+
+8. Apply, Ok
+
+9. select in Configuration Tomcat and run 
+
+Setup completed you can use taxi-service
+
+
+
+
+
