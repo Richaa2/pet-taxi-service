@@ -31,9 +31,9 @@ Add driver to car
 
 Java 8
 
-MySql
+MySQL
 
-jdbc
+JDBC
 
 Tomcat
 
@@ -43,7 +43,7 @@ JUnit 4
 
 ### For connection to database
 
-1. create MySql connection in local Desktop <br/><br/>
+1. create MySQL connection in local Desktop <br/><br/>
 
 2. open file with path
 
