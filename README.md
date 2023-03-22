@@ -4,7 +4,7 @@ My First simple java pet project
 
  example of a web application for a taxi service
  
-built using Java, jdbc, and MySQL.
+built using Java, JDBC, and MySQL.
 
 The application allows users to register as taxi drivers.
 
